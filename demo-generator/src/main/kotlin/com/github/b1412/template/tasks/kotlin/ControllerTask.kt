@@ -21,5 +21,4 @@ class ControllerTask : MultipleTask(
     filename = { _, entity -> entity!!.name + "Controller.kt" },
     templatePath = "kotlin/controller.ftl",
     entityExtProcessors = listOf(entityNames)
-
 )
