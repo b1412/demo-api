@@ -1,4 +1,4 @@
-# demo-api
+# demo-api [![Build Status](https://travis-ci.com/b1412/demo-api.svg?branch=master)](https://travis-ci.com/b1412/demo-api)
   a demo to use https://github.com/b1412/kotlin-code-generator
 
 #
