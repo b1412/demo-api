@@ -8,14 +8,14 @@ import org.springframework.stereotype.Service
 
 @Service
 class UserService(
-@Autowired
-val dao: UserDao
-){
-fun findAll(): List<User> {
-return dao.findAll()
-}
+    @Autowired
+    val dao: UserDao
+) {
+    fun findAll(): List<User> {
+        return dao.findAll()
+    }
 
-fun add(user: User): User {
-return dao.save(user)
-}
+    fun add(user: User): User {
+        return dao.save(user)
+    }
 }

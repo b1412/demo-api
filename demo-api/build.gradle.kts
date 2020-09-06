@@ -22,9 +22,11 @@ java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
     mavenCentral()
+    maven(url = "https://jitpack.io")
 }
 
 dependencies {
+    implementation("com.github.b1412:api-common:540b36da63")
     implementation(project(":demo-base"))
     val arrowVersion = "0.10.5"
     implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -33,24 +35,15 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-hibernate5")
     arrow(arrowVersion)
-    implementation("io.github.microutils:kotlin-logging:1.7.6")
     implementation("com.h2database:h2")
 
-    testImplementation("org.junit.jupiter:junit-jupiter-api")
-    testImplementation("org.springframework.boot:spring-boot-starter-test") {
-        exclude(module = "junit")
-        exclude(module = "mockito-core")
-    }
-    testImplementation("com.ninja-squad:springmockk:1.1.2")
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 fun DependencyHandlerScope.springboot() {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.springframework.boot:spring-boot-starter-web") {
-        exclude(group = "org.springframework.boot", module = "spring-boot-starter-tomcat")
-    }
-    implementation("org.springframework.boot:spring-boot-starter-undertow")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+
 }
 
 fun DependencyHandlerScope.arrow(arrowVersion: String) {
