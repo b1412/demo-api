@@ -1,0 +1,6 @@
+language: jvm
+os: linux
+dist: trusty
+jdk: openjdk11
+script:
+- "./gradlew build -xtest"

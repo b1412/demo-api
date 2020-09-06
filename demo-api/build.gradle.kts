@@ -17,7 +17,6 @@ allOpen {
     annotation("javax.persistence.MappedSuperclass")
 }
 
-version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
 repositories {
@@ -26,29 +25,17 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.b1412:api-common:540b36da63")
-    implementation(project(":demo-base"))
     val arrowVersion = "0.10.5"
-    implementation("org.jetbrains.kotlin:kotlin-reflect")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-    springboot()
+    api(project(":demo-base"))
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-hibernate5")
-    arrow(arrowVersion)
+    implementation("io.arrow-kt:arrow-core:$arrowVersion")
+    implementation("io.arrow-kt:arrow-syntax:$arrowVersion")
     implementation("com.h2database:h2")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-}
-
-fun DependencyHandlerScope.springboot() {
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.springframework.boot:spring-boot-starter-web")
-
-}
-
-fun DependencyHandlerScope.arrow(arrowVersion: String) {
-    implementation("io.arrow-kt:arrow-core:$arrowVersion")
-    implementation("io.arrow-kt:arrow-syntax:$arrowVersion")
 }
 
 tasks.withType<KotlinCompile> {
